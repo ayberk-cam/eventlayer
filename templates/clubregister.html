@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+{% block title %}Student Club Register{% endblock %}
+{% block content %}
+
+<body>
+  {% from "formhelpers.html" import render_field %}
+  <section class="section">
+    <div class="container is-fluid">
+      <div class="columns">
+        <div class="column is-half is-offset-one-quarter">
+          <div class="column is-narrow">
+            <div class="box">
+              <div class="panel-block">
+                <form method="post">
+                  <div class="field is-fullwidth">
+                    <div class="field">
+                      <div class="control">
+                        {{ render_field(form.name, class="label") }}
+                      </div>
+                    </div>
+                    <div class="field">
+                      <div class="control">
+                        {{ render_field(form.profession, class="label") }}
+                      </div>
+                    </div>
+                    <div class="field">
+                      <div class="control">
+                        {{ render_field(form.username, class="label") }}
+                      </div>
+                    </div>
+                    <div class="field">
+                      <div class="control">
+                        {{ render_field(form.email, class="label") }}
+                      </div>
+                    </div>
+                    <div class="field">
+                      <div class="control">
+                        {{ render_field(form.password, class="label") }}
+                      </div>
+                    </div>
+                    <div class="field">
+                      <div class="control">
+                        {{ render_field(form.confirm, class="label") }}
+                      </div>
+                    </div>
+                    <input class="button is-light" type="submit" value="Register">
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+</body>
+{% endblock %}

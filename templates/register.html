@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block title %}Register{% endblock %}
+{% block content %}
+
+  <p>
+    <br>
+  </p>
+  <div class="columns is-mobile is-centered">
+    <div class="columns">
+      <figure class="image is-128x128">
+        <img src="/static/logo.png">
+      </figure>
+    </div>
+  </div>
+  <div class="columns is-mobile is-centered">
+    <div class="columns">
+      <h1 class="title is-1">Who are you?</h1>
+    </div>
+  </div>
+  <p>
+    <br>
+  </p>
+  <p>
+    <br>
+  </p>
+  <p>
+    <br>
+  </p>
+  <p>
+    <br>
+  </p>
+  <div class="columns is-mobile is-centered">
+    <div class="columns">
+      <div class="buttons are large">
+        <a class="button is-warning is-rounded" href="{{ url_for('studentregister_page') }}">
+          <strong>I'm a Student</strong>
+        </a>
+        <a class="button is-danger is-rounded" href="{{ url_for('clubregister_page') }}">
+          <strong>We're a Student Club</strong>
+        </a>
+      </div>
+    </div>
+  </div>
+  <p>
+    <br>
+  </p>
+</body>
+
+{% endblock %}

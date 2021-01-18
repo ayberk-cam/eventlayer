@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='all.css') }}" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+</head>
+<nav class="navbar is-white" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+            <img src="/static/logo.png">
+        </a>
+
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+        
+        {% if session["studentlogged_in"] %}
+        <div class="navbar-start">
+            <a class="navbar-item" href="{{ url_for('student_clubs_page') }}">
+                Clubs
+            </a>
+            <a class="navbar-item" href="{{ url_for('studentlistevents_page') }}">
+                List Events
+            </a>
+            <hr class="navbar-divider">
+        </div>
+
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <div class="buttons">
+                    <a class="button is-light" href="{{ url_for('logout_page') }}">
+                        <strong>Log out</strong>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% elif session["clublogged_in"] %}
+        <div class="navbar-start">
+            <a class="navbar-item" href="{{ url_for('clubmyevents_page') }}">
+                My Events
+            </a>
+            <a class="navbar-item" href="{{ url_for('clubaddevent_page') }}">
+                Add Events
+            </a>
+            <a class="navbar-item" href="{{ url_for('clubmembers_page') }}">
+                Members
+            </a>
+            <hr class="navbar-divider">
+        </div>
+
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <div class="buttons">
+                    <a class="button is-light" href="{{ url_for('logout_page') }}">
+                        <strong>Log out</strong>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="navbar-start">
+            <a class="navbar-item" href="{{ url_for('home_page') }}">
+                Home
+            </a>
+            <hr class="navbar-divider">
+        </div>
+
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <div class="buttons">
+                    <a class="button is-light" href="{{ url_for('register_page') }}">
+                        <strong>Sign up</strong>
+                    </a>
+                    <a class="button is-light" href="{{ url_for('login_page') }}">
+                        <strong>Log in</strong>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+</nav>
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+<div class="notification">
+    <div class="{{ category }}">{{ message }}</div>
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+<body>
+    {% block content %}{% endblock %}
+</body>
+
+<script src="https://cdn.ckeditor.com/4.15.1/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace( 'content' );
+</script>
