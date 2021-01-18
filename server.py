@@ -4,7 +4,7 @@ import views
 from database import Database
 
 
-POSTGRESQL_URI = "postgres://qesotqlegqoojv:9eb7d18c5bdd26cc185286da84ad2857b52474c1c07c03526b03af1cf7d6d740@ec2-46-137-177-160.eu-west-1.compute.amazonaws.com:5432/d1pkt0mjn6nlqi"
+POSTGRESQL_URI = os.environ.get('DATABASE_URL')
 db = Database(POSTGRESQL_URI)
 
 def create_app():
