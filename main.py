@@ -1,10 +1,9 @@
 from flask import Flask
-import os
 import views
 from database import Database
 
 
-POSTGRESQL_URI = "postgres://kyjmuled:uwiFMbi9CRv6myVwew1aocvbyZec8jUE@rogue.db.elephantsql.com:5432/kyjmuled"
+POSTGRESQL_URI = "postgres://qesotqlegqoojv:9eb7d18c5bdd26cc185286da84ad2857b52474c1c07c03526b03af1cf7d6d740@ec2-46-137-177-160.eu-west-1.compute.amazonaws.com:5432/d1pkt0mjn6nlqi"
 db = Database(POSTGRESQL_URI)
 
 app = Flask(__name__)
@@ -33,4 +32,4 @@ if __name__ == "__main__":
     app = create_app()
     app.config["db"] = db
     app.config["SECRET_KEY"] = "eventlayer"
-    app.run(threaded=True, port=5000)
+    app.run()
