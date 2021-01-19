@@ -19,7 +19,7 @@ class StudentRegisterForm(Form):
 
 class ClubRegisterForm(Form):
     name = StringField("Name", validators=[validators.DataRequired()])
-    profession = SelectField('Profession', choices=[('cat', 'Culture - Art and Thinking Student Clubs'), ('sports', 'Sports Student Clubs'), ('expert', 'Expertise Student Clubs')], validators=[validators.DataRequired()])
+    profession = SelectField('Profession', choices=[('Culture - Art and Thinking', 'Culture - Art and Thinking Student Clubs'), ('Sports', 'Sports Student Clubs'), ('Expertise', 'Expertise Student Clubs')], validators=[validators.DataRequired()])
     username = StringField("Username", validators=[validators.DataRequired()])
     email = StringField("E-mail", validators=[validators.DataRequired(), validators.Email(message = "Please enter a valid e-mail")])
     password = PasswordField("Password", validators=[validators.DataRequired(message="Please enter a password"), 
