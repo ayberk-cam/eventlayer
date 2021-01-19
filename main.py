@@ -1,17 +1,16 @@
 from flask import Flask
 import views
 from database import Database
-import os
+
 
 
 POSTGRESQL_URI = "postgres://qesotqlegqoojv:9eb7d18c5bdd26cc185286da84ad2857b52474c1c07c03526b03af1cf7d6d740@ec2-46-137-177-160.eu-west-1.compute.amazonaws.com:5432/d1pkt0mjn6nlqi"
 db = Database(POSTGRESQL_URI)
 
-app = Flask(__name__)
-app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'eventlayer')
-app.config["db"] = db
-
 def create_app():
+    app = Flask(__name__)
+    app.config.from_object("settings")
+    
     app.add_url_rule("/", view_func=views.home_page)
     app.add_url_rule("/register", view_func=views.register_page)
     app.add_url_rule("/studentregister", view_func=views.studentregister_page, methods=["GET", "POST"])
@@ -31,6 +30,11 @@ def create_app():
     app.add_url_rule("/logout", view_func=views.logout_page)
     return app
 
+
+
 if __name__ == "__main__":
     app = create_app()
-    app.run(debug=True)
+    port = app.config.get("PORT", 5001)
+    app.secret_key = 'eventlayer'
+    app.config["db"] = db
+    app.run()
