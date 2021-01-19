@@ -33,4 +33,4 @@ if __name__ == "__main__":
     app = create_app()
     app.config["db"] = db
     app.config["SECRET_KEY"] = "eventlayer"
-    app.run()
+    app.run(threaded=True, port=5000)
