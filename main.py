@@ -212,7 +212,7 @@ def clubdelete_page(id):
         flash("There is no Event or You do not have authorization")
         return redirect(url_for("clubmyevents_page"))
 
-@app.route("/delete/<string:id>",methods=["GET", "POST"]) 
+@app.route("/update/<string:id>",methods=["GET", "POST"]) 
 @clublogin_required
 def clubupdate_page(id):
     form = EventForm(request.form)
