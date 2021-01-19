@@ -1,6 +1,6 @@
 from flask import Flask
 
-from wtforms import Form, StringField, TextAreaField, PasswordField, validators
+from wtforms import Form, StringField, TextAreaField, PasswordField, validators, SelectField
 from passlib.hash import sha256_crypt
 from wtforms.fields.html5 import DateField
 from wtforms_components import TimeField
@@ -19,7 +19,7 @@ class StudentRegisterForm(Form):
 
 class ClubRegisterForm(Form):
     name = StringField("Name", validators=[validators.DataRequired()])
-    profession = StringField("Profession", validators=[validators.DataRequired()])
+    profession = SelectField('Profession', choices=[('cat', 'Culture - Art and Thinking Student Clubs'), ('sports', 'Sports Student Clubs'), ('expert', 'Expertise Student Clubs')], validators=[validators.DataRequired()])
     username = StringField("Username", validators=[validators.DataRequired()])
     email = StringField("E-mail", validators=[validators.DataRequired(), validators.Email(message = "Please enter a valid e-mail")])
     password = PasswordField("Password", validators=[validators.DataRequired(message="Please enter a password"), 
