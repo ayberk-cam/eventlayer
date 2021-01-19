@@ -10,6 +10,7 @@ db = Database(POSTGRESQL_URI)
 def create_app():
     app = Flask(__name__)
     app.config.from_object("settings")
+
     app.add_url_rule("/", view_func=views.home_page)
     app.add_url_rule("/register", view_func=views.register_page)
     app.add_url_rule("/studentregister", view_func=views.studentregister_page, methods=["GET", "POST"])
@@ -28,3 +29,9 @@ def create_app():
     app.add_url_rule("/member/<string:id>", view_func=views.member_page)
     app.add_url_rule("/logout", view_func=views.logout_page)
     return app
+
+if __name__ == "__main__":
+    app = create_app()
+    app.config["db"] = db
+    app.config["SECRET_KEY"] = "eventlayer"
+    app.run()
