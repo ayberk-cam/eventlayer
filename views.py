@@ -6,8 +6,8 @@ from datetime import datetime
 from classes import Student,StudentClub,Event,Member
 from forms import StudentRegisterForm, ClubRegisterForm, LoginForm, EventForm
 from functools import wraps
-import main
-from main import db
+import server
+from server import db
 
 def studentlogin_required(f):
     @wraps(f)
