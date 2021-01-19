@@ -1,12 +1,15 @@
 from flask import Flask
 import views
 from database import Database
+import os
 
 
 POSTGRESQL_URI = "postgres://qesotqlegqoojv:9eb7d18c5bdd26cc185286da84ad2857b52474c1c07c03526b03af1cf7d6d740@ec2-46-137-177-160.eu-west-1.compute.amazonaws.com:5432/d1pkt0mjn6nlqi"
 db = Database(POSTGRESQL_URI)
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'eventlayer')
+app.config["db"] = db
 
 def create_app():
     app.add_url_rule("/", view_func=views.home_page)
@@ -30,6 +33,4 @@ def create_app():
 
 if __name__ == "__main__":
     app = create_app()
-    app.config["db"] = db
-    app.config["SECRET_KEY"] = "eventlayer"
-    app.run()
+    app.run(debug=True)
