@@ -7,7 +7,7 @@ from classes import Student,StudentClub,Event,Member
 from forms import StudentRegisterForm, ClubRegisterForm, LoginForm, EventForm
 from database import Database
 
-POSTGRESQL_URI = "postgres://qesotqlegqoojv:9eb7d18c5bdd26cc185286da84ad2857b52474c1c07c03526b03af1cf7d6d740@ec2-46-137-177-160.eu-west-1.compute.amazonaws.com:5432/d1pkt0mjn6nlqi"
+POSTGRESQL_URI = "postgres://vtbswxdz:PkO0W-JAq4-2eajiIxJ8rcuzk2EqnZ7c@rogue.db.elephantsql.com:5432/vtbswxdz"
 db = Database(POSTGRESQL_URI)
 
 app = Flask(__name__)
