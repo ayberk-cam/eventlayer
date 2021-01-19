@@ -3,37 +3,34 @@
 {% block content %}
 
 {% if events %}
-<section class="section">
-    <div class="container is-fluid">
-        <div class="columns">
-            <div class="column is-half is-offset-one-quarter">
-                <div class="column is-narrow">
-                    <div class="box">
-                        <table class="table">
-                            <thead>
-                              <tr>
-                                <th><abbr title="Event Name">Name</abbr></th>
-                                <th><abbr title="Date">Date</abbr></th>
-                                <th><abbr title="Time">Time</abbr></th>
-                                <th><abbr title="Place">Place</abbr></th>
-                                <th><abbr title="Place"></abbr></th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                                {% for event in events %}    
-                                <tr>                           
-                                  <td><a href="/clubevent/{{event[0]}}">{{event[3]}}</a></td>
-                                  <td>{{event[4]}}</td>
-                                  <td>{{event[5]}}</td>
-                                  <td>{{event[6]}}</td>
-                                </tr>
-                                {% endfor %}
-                            </tbody>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+<p>
+    <br>
+</p>
+<div class="columns is-mobile is-centered">
+    <div class="box">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th><abbr title="Event Name">Name</abbr></th>
+                    <th><abbr title="Date">Date</abbr></th>
+                    <th><abbr title="Time">Time</abbr></th>
+                    <th><abbr title="Place">Place</abbr></th>
+                    <th><abbr title="Place"></abbr></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for event in events %}
+                <tr>
+                    <td><a href="/clubevent/{{event[0]}}">{{event[3]}}</a></td>
+                    <td>{{event[4]}}</td>
+                    <td>{{event[5]}}</td>
+                    <td>{{event[6]}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
     </div>
+</div>
 {% else %}
 <section class="section">
     <div class="container is-fluid">
@@ -43,14 +40,14 @@
                     <div class="box">
                         <div class="notification is-danger">
                             There is no Event
-                          </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-{% endif %}
+    {% endif %}
 
 
 
-{% endblock %}
+    {% endblock %}

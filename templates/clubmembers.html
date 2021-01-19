@@ -3,38 +3,35 @@
 {% block content %}
 
 {% if printed_members %}
-<section class="section">
-    <div class="container is-fluid">
-        <div class="columns">
-            <div class="column is-half is-offset-one-quarter">
-                <div class="column is-narrow">
-                    <div class="box">
-                        <table class="table">
-                            <thead>
-                              <tr>
-                                <th><abbr title="Event Name">Name</abbr></th>
-                                <th><abbr title="Date">Surname</abbr></th>
-                                <th><abbr title="Time">Department</abbr></th>
-                                <th><abbr title="Time">E-mail</abbr></th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                                {% for list in printed_members %} 
-                                    {% for member in list %}   
-                                <tr>                           
-                                  <td>{{member[0]}}</a></td>
-                                  <td>{{member[1]}}</td>
-                                  <td>{{member[2]}}</td>
-                                  <td>{{member[3]}}</td>
-                                </tr>
-                                    {% endfor %}
-                                {% endfor %}
-                            </tbody>
-                    </div>
-                </div>
-            </div>
-        </div>
+<p>
+    <br>
+</p>
+<div class="columns is-mobile is-centered">
+    <div class="box">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th><abbr title="Event Name">Name</abbr></th>
+                    <th><abbr title="Date">Surname</abbr></th>
+                    <th><abbr title="Time">Department</abbr></th>
+                    <th><abbr title="Time">E-mail</abbr></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for list in printed_members %}
+                {% for member in list %}
+                <tr>
+                    <td>{{member[0]}}</a></td>
+                    <td>{{member[1]}}</td>
+                    <td>{{member[2]}}</td>
+                    <td>{{member[3]}}</td>
+                </tr>
+                {% endfor %}
+                {% endfor %}
+            </tbody>
     </div>
+</div>
+
 {% else %}
 <section class="section">
     <div class="container is-fluid">
@@ -44,12 +41,12 @@
                     <div class="box">
                         <div class="notification is-danger">
                             You do not have any Member
-                          </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-{% endif %}
+    {% endif %}
 
     {% endblock %}

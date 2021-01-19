@@ -2,32 +2,29 @@
 {% block title %}Student Club - Log in{% endblock %}
 {% block content %}
 
-<body>
-  {% from "formhelpers.html" import render_field %}
 
-<div class="columns">
-  <div class="column is-one-third"></div>
-    <div class="column">
-      <form method="post">
-        <div class="field is-fullwidth">
-          <div class="field">
-            <div class="control">
-              {{ render_field(form.username, class="label") }}
-            </div>
-          </div>
-          <div class="field">
-            <div class="control">
-              {{ render_field(form.password, class="label") }}
-            </div>
-          </div>
-          <input class="button is-light" type="submit" value="Log in">
-      </form>
-    </div>
-  <div class="column"></div>
+{% from "formhelpers.html" import render_field %}
+
+<p>
+  <br>
+</p>
+<div class="columns is-mobile is-centered">
+  <div class="box">
+    <form method="post">
+      <div class="field">
+        <div class="control">
+          {{ render_field(form.username, class="label") }}
+        </div>
+      </div>
+      <div class="field">
+        <div class="control">
+          {{ render_field(form.password, class="label") }}
+        </div>
+      </div>
+      <input class="button is-light" type="submit" value="Log in">
+    </form>
+  </div>
 </div>
 
 
-
-
-</body>
 {% endblock %}
